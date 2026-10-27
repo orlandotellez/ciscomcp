@@ -1,0 +1,163 @@
+2026-10-27 11:38:41,810 - INFO - server listening on 127.0.0.1:8765
+2026-10-27 11:38:41,810 - INFO - server listening on 127.0.0.1:8765
+2026-10-27 11:38:41,810 - INFO - WS listening 8765
+2026-10-27 11:38:41,810 - INFO - WS listening 8765
+2026-10-27 14:31:19,376 - INFO - connection rejected (426 Upgrade Required)
+2026-10-27 14:31:19,376 - INFO - connection rejected (426 Upgrade Required)
+2026-10-27 14:31:19,378 - INFO - connection closed
+2026-10-27 14:31:19,378 - INFO - connection closed
+2026-10-27 14:31:19,542 - INFO - connection rejected (426 Upgrade Required)
+2026-10-27 14:31:19,542 - INFO - connection rejected (426 Upgrade Required)
+2026-10-27 14:31:19,544 - INFO - connection closed
+2026-10-27 14:31:19,544 - INFO - connection closed
+2026-10-27 14:31:29,389 - INFO - connection closed
+2026-10-27 14:31:29,389 - INFO - connection closed
+2026-10-27 14:35:21,164 - ERROR - [Errno 98] error while attempting to bind on address ('127.0.0.1', 8765): address already in use
+2026-10-27 14:35:21,169 - INFO - Processing request of type ListToolsRequest
+2026-10-27 14:35:21,180 - INFO - Processing request of type ListPromptsRequest
+2026-10-27 14:35:21,192 - INFO - Processing request of type ListResourcesRequest
+2026-10-27 14:35:21,194 - INFO - Processing request of type ListResourceTemplatesRequest
+2026-10-27 14:35:21,318 - INFO - Processing request of type ListToolsRequest
+2026-10-27 14:35:21,324 - ERROR - [Errno 98] error while attempting to bind on address ('127.0.0.1', 8765): address already in use
+2026-10-27 14:35:21,328 - INFO - Processing request of type ListPromptsRequest
+2026-10-27 14:35:21,340 - INFO - Processing request of type ListResourcesRequest
+2026-10-27 14:35:21,342 - INFO - Processing request of type ListResourceTemplatesRequest
+2026-10-27 14:36:04,323 - INFO - Processing request of type ListToolsRequest
+2026-10-27 14:36:04,331 - INFO - server listening on 127.0.0.1:8765
+2026-10-27 14:36:04,331 - INFO - WS listening 8765
+2026-10-27 14:36:04,332 - INFO - Processing request of type ListPromptsRequest
+2026-10-27 14:36:04,344 - INFO - Processing request of type ListResourcesRequest
+2026-10-27 14:36:04,345 - INFO - Processing request of type ListResourceTemplatesRequest
+2026-10-27 14:36:04,378 - INFO - Processing request of type ListToolsRequest
+2026-10-27 14:36:04,380 - ERROR - [Errno 98] error while attempting to bind on address ('127.0.0.1', 8765): address already in use
+2026-10-27 14:36:04,385 - INFO - Processing request of type ListPromptsRequest
+2026-10-27 14:36:04,398 - INFO - Processing request of type ListResourcesRequest
+2026-10-27 14:36:04,400 - INFO - Processing request of type ListResourceTemplatesRequest
+2026-10-27 14:52:12,200 [PID:36360] - INFO - [HUB-STANDALONE] Iniciando Hub WebSocket dedicado en ws://127.0.0.1:8765...
+2026-10-27 14:52:12,214 [PID:36360] - INFO - [HUB] Servidor WebSocket escuchando en ws://127.0.0.1:8765
+2026-10-27 14:59:44,577 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 52968)
+2026-10-27 14:59:44,578 [PID:36360] - INFO - [HUB] Bridge de Packet Tracer asignado inicialmente (('127.0.0.1', 52968))
+2026-10-27 14:59:44,581 [PID:36360] - INFO - [HUB] Bridge de Packet Tracer conectado y registrado (packettracer_webview)
+2026-10-27 14:59:44,584 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] Conexión establecida con servidor MCP (ws://127.0.0.1:8765)
+2026-10-27 15:00:26,287 [PID:37129] - INFO - [PROXY] El puerto 8765 ya está en uso por otro proceso MCP. Este proceso (PID 37129) operará en modo cliente proxy hacia ws://127.0.0.1:8765.
+2026-10-27 15:00:26,330 [PID:37130] - INFO - [PROXY] El puerto 8765 ya está en uso por otro proceso MCP. Este proceso (PID 37130) operará en modo cliente proxy hacia ws://127.0.0.1:8765.
+2026-10-27 15:03:07,270 [PID:37359] - INFO - [PROXY -> HUB] Enviando 'ping' (id=16681ace-ab7e-4a75-9883-a453d9d12034) vía ws://127.0.0.1:8765
+2026-10-27 15:03:07,295 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 38532)
+2026-10-27 15:03:07,295 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'ping' (id=72e58fb8-ff34-45f5-b205-9802b65a4a64) params={}
+2026-10-27 15:03:07,298 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: ping (id=72e58fb8-ff34-45f5-b205-9802b65a4a64) params={}
+2026-10-27 15:03:07,300 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [ping]: {"status":"ok","device_count":0}
+2026-10-27 15:03:07,300 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'ping' (id=72e58fb8-ff34-45f5-b205-9802b65a4a64): success=True
+2026-10-27 15:03:07,301 [PID:37359] - INFO - [PROXY -> HUB] Enviando 'list_devices' (id=cea9e333-6492-4b3a-84ae-4cc3ba300bce) vía ws://127.0.0.1:8765
+2026-10-27 15:03:07,304 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 38546)
+2026-10-27 15:03:07,304 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'list_devices' (id=4dc8d5e2-7e3a-401c-8781-6a30f0e83473) params={}
+2026-10-27 15:03:07,306 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: list_devices (id=4dc8d5e2-7e3a-401c-8781-6a30f0e83473) params={}
+2026-10-27 15:03:07,308 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [list_devices]: []
+2026-10-27 15:03:07,308 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'list_devices' (id=4dc8d5e2-7e3a-401c-8781-6a30f0e83473): success=True
+2026-10-27 15:03:28,258 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'add_device' (id=4f239cd6-3b26-435b-8a98-006265bbd92e) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,272 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 49988)
+2026-10-27 15:03:28,273 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'add_device' (id=7c85a370-9b09-4647-8bf5-28f0a2cf3a57) params={'device_type': 'router', 'model': '2911', 'name': 'R1', 'x': 350, 'y': 120}
+2026-10-27 15:03:28,275 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: add_device (id=7c85a370-9b09-4647-8bf5-28f0a2cf3a57) params={"device_type":"router","model":"2911","name":"R1","x":350,"y":120}
+2026-10-27 15:03:28,422 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [add_device]: {"created_name":"Router0","name":"R1","model":"2911","type":0,"x":350,"y":120}
+2026-10-27 15:03:28,422 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'add_device' (id=7c85a370-9b09-4647-8bf5-28f0a2cf3a57): success=True
+2026-10-27 15:03:28,424 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'add_device' (id=cba14e1f-29db-41bd-8274-24e555049b96) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,426 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 49998)
+2026-10-27 15:03:28,427 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'add_device' (id=4c6818bb-7fa8-4afd-808f-73ecb0865077) params={'device_type': 'switch', 'model': '2960-24TT', 'name': 'SW1', 'x': 350, 'y': 260}
+2026-10-27 15:03:28,428 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: add_device (id=4c6818bb-7fa8-4afd-808f-73ecb0865077) params={"device_type":"switch","model":"2960-24TT","name":"SW1","x":350,"y":260}
+2026-10-27 15:03:28,460 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [add_device]: {"created_name":"Switch0","name":"SW1","model":"2960-24TT","type":1,"x":350,"y":260}
+2026-10-27 15:03:28,461 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'add_device' (id=4c6818bb-7fa8-4afd-808f-73ecb0865077): success=True
+2026-10-27 15:03:28,462 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'add_device' (id=0ad307da-ab57-41b6-aa5a-08a102672fc0) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,464 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50012)
+2026-10-27 15:03:28,464 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'add_device' (id=1926ba58-2d91-448a-9e52-7781cd8e2c2e) params={'device_type': 'pc', 'model': 'PC-PT', 'name': 'PC1', 'x': 200, 'y': 400}
+2026-10-27 15:03:28,465 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: add_device (id=1926ba58-2d91-448a-9e52-7781cd8e2c2e) params={"device_type":"pc","model":"PC-PT","name":"PC1","x":200,"y":400}
+2026-10-27 15:03:28,477 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [add_device]: {"created_name":"PC0","name":"PC1","model":"PC-PT","type":8,"x":200,"y":400}
+2026-10-27 15:03:28,477 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'add_device' (id=1926ba58-2d91-448a-9e52-7781cd8e2c2e): success=True
+2026-10-27 15:03:28,478 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'add_device' (id=407174af-5ea5-4961-97d8-6737e533fb2a) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,480 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50026)
+2026-10-27 15:03:28,481 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'add_device' (id=95bd2683-f69d-475c-afc7-766f07f6ad95) params={'device_type': 'pc', 'model': 'PC-PT', 'name': 'PC2', 'x': 500, 'y': 400}
+2026-10-27 15:03:28,482 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: add_device (id=95bd2683-f69d-475c-afc7-766f07f6ad95) params={"device_type":"pc","model":"PC-PT","name":"PC2","x":500,"y":400}
+2026-10-27 15:03:28,487 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [add_device]: {"created_name":"PC2","name":"PC2","model":"PC-PT","type":8,"x":500,"y":400}
+2026-10-27 15:03:28,487 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'add_device' (id=95bd2683-f69d-475c-afc7-766f07f6ad95): success=True
+2026-10-27 15:03:28,488 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'connect_link' (id=c2b4ee1c-8aca-439e-a3cc-ae22be710868) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,491 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50042)
+2026-10-27 15:03:28,491 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'connect_link' (id=855e4719-ebf8-475e-8c45-09082a8b1196) params={'dev1': 'R1', 'port1': 'GigabitEthernet0/0', 'dev2': 'SW1', 'port2': 'GigabitEthernet0/1', 'cable_type': 'straight'}
+2026-10-27 15:03:28,493 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: connect_link (id=855e4719-ebf8-475e-8c45-09082a8b1196) params={"dev1":"R1","port1":"GigabitEthernet0/0","dev2":"SW1","port2":"GigabitEthernet0/1","cable_type":"straight"}
+2026-10-27 15:03:28,506 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [connect_link]: {"connected":true,"dev1":"R1","port1":"GigabitEthernet0/0","dev2":"SW1","port2":"GigabitEthernet0/1","cable_type":8100}
+2026-10-27 15:03:28,506 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'connect_link' (id=855e4719-ebf8-475e-8c45-09082a8b1196): success=True
+2026-10-27 15:03:28,507 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'connect_link' (id=3482dbc6-b70a-4c48-b723-cceefdbab9f6) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,509 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50058)
+2026-10-27 15:03:28,509 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'connect_link' (id=eb5384ab-fcee-4f19-8cbb-577a3ec74213) params={'dev1': 'SW1', 'port1': 'FastEthernet0/1', 'dev2': 'PC1', 'port2': 'FastEthernet0', 'cable_type': 'straight'}
+2026-10-27 15:03:28,511 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: connect_link (id=eb5384ab-fcee-4f19-8cbb-577a3ec74213) params={"dev1":"SW1","port1":"FastEthernet0/1","dev2":"PC1","port2":"FastEthernet0","cable_type":"straight"}
+2026-10-27 15:03:28,518 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [connect_link]: {"connected":true,"dev1":"SW1","port1":"FastEthernet0/1","dev2":"PC1","port2":"FastEthernet0","cable_type":8100}
+2026-10-27 15:03:28,518 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'connect_link' (id=eb5384ab-fcee-4f19-8cbb-577a3ec74213): success=True
+2026-10-27 15:03:28,520 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'connect_link' (id=b210a73e-22e2-4403-9be8-dc4989d80451) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,521 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50064)
+2026-10-27 15:03:28,522 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'connect_link' (id=941e78f3-0609-4258-b319-d5ec1d994c89) params={'dev1': 'SW1', 'port1': 'FastEthernet0/2', 'dev2': 'PC2', 'port2': 'FastEthernet0', 'cable_type': 'straight'}
+2026-10-27 15:03:28,524 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: connect_link (id=941e78f3-0609-4258-b319-d5ec1d994c89) params={"dev1":"SW1","port1":"FastEthernet0/2","dev2":"PC2","port2":"FastEthernet0","cable_type":"straight"}
+2026-10-27 15:03:28,531 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [connect_link]: {"connected":true,"dev1":"SW1","port1":"FastEthernet0/2","dev2":"PC2","port2":"FastEthernet0","cable_type":8100}
+2026-10-27 15:03:28,531 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'connect_link' (id=941e78f3-0609-4258-b319-d5ec1d994c89): success=True
+2026-10-27 15:03:28,532 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'configure_ios' (id=5baf3250-9f95-45e6-9736-edf68f93ecef) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,534 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50068)
+2026-10-27 15:03:28,535 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'configure_ios' (id=3c2a1b65-0c2b-4a1a-ab37-abaef19ed7a1) params={'device': 'R1', 'commands': ['configure terminal', 'hostname R1', 'interface GigabitEthernet0/0', 'description LAN_PRINCIPAL', 'ip address 192.168.10.1 255.255.255.0', 'no shutdown', 'end', 'write memory']}
+2026-10-27 15:03:28,536 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: configure_ios (id=3c2a1b65-0c2b-4a1a-ab37-abaef19ed7a1) params={"device":"R1","commands":["configure terminal","hostname R1","interface GigabitEthernet0/0","description LAN_PRINCIPAL","ip address 192.168.10.1 255.255.255.0","no shutdown","end","write memory"]}
+2026-10-27 15:03:28,542 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [configure_ios]: {"device":"R1","executed":8,"prompt":""}
+2026-10-27 15:03:28,542 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'configure_ios' (id=3c2a1b65-0c2b-4a1a-ab37-abaef19ed7a1): success=True
+2026-10-27 15:03:28,543 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'configure_ios' (id=e16673cd-cd69-4082-a9b5-54f2785a6b32) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,545 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50080)
+2026-10-27 15:03:28,545 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'configure_ios' (id=6fb076df-4edd-4ae1-8cd8-d04ced02a838) params={'device': 'SW1', 'commands': ['configure terminal', 'hostname SW1', 'end', 'write memory']}
+2026-10-27 15:03:28,547 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: configure_ios (id=6fb076df-4edd-4ae1-8cd8-d04ced02a838) params={"device":"SW1","commands":["configure terminal","hostname SW1","end","write memory"]}
+2026-10-27 15:03:28,551 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [configure_ios]: {"device":"SW1","executed":4,"prompt":""}
+2026-10-27 15:03:28,551 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'configure_ios' (id=6fb076df-4edd-4ae1-8cd8-d04ced02a838): success=True
+2026-10-27 15:03:28,552 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'configure_pc_ip' (id=50267373-f69e-4da0-9963-7e8b602b7371) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,553 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50088)
+2026-10-27 15:03:28,554 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'configure_pc_ip' (id=c10c604a-5c6d-4f3d-9acc-281c1977b2ff) params={'device': 'PC1', 'ip': '192.168.10.10', 'subnet_mask': '255.255.255.0', 'gateway': '192.168.10.1', 'dhcp': False}
+2026-10-27 15:03:28,555 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: configure_pc_ip (id=c10c604a-5c6d-4f3d-9acc-281c1977b2ff) params={"device":"PC1","ip":"192.168.10.10","subnet_mask":"255.255.255.0","gateway":"192.168.10.1","dhcp":false}
+2026-10-27 15:03:28,560 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [configure_pc_ip]: {"device":"PC1","port":"FastEthernet0","dhcp":false,"ip":"192.168.10.10","subnet_mask":"255.255.255.0"}
+2026-10-27 15:03:28,560 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'configure_pc_ip' (id=c10c604a-5c6d-4f3d-9acc-281c1977b2ff): success=True
+2026-10-27 15:03:28,561 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'configure_pc_ip' (id=7c63f84b-969a-421f-9045-d2b5a4ced09d) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,562 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50090)
+2026-10-27 15:03:28,563 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'configure_pc_ip' (id=681cfac0-fe55-4a8a-9e69-5e7a933c5bc0) params={'device': 'PC2', 'ip': '192.168.10.20', 'subnet_mask': '255.255.255.0', 'gateway': '192.168.10.1', 'dhcp': False}
+2026-10-27 15:03:28,564 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: configure_pc_ip (id=681cfac0-fe55-4a8a-9e69-5e7a933c5bc0) params={"device":"PC2","ip":"192.168.10.20","subnet_mask":"255.255.255.0","gateway":"192.168.10.1","dhcp":false}
+2026-10-27 15:03:28,567 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [configure_pc_ip]: {"device":"PC2","port":"FastEthernet0","dhcp":false,"ip":"192.168.10.20","subnet_mask":"255.255.255.0"}
+2026-10-27 15:03:28,568 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'configure_pc_ip' (id=681cfac0-fe55-4a8a-9e69-5e7a933c5bc0): success=True
+2026-10-27 15:03:28,569 [PID:37379] - INFO - [PROXY -> HUB] Enviando 'list_devices' (id=09e0b28d-4bcb-49b5-b4b1-38e436869592) vía ws://127.0.0.1:8765
+2026-10-27 15:03:28,570 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 50102)
+2026-10-27 15:03:28,571 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'list_devices' (id=f3885631-ed83-4c06-9f48-a1f162cd07c0) params={}
+2026-10-27 15:03:28,572 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: list_devices (id=f3885631-ed83-4c06-9f48-a1f162cd07c0) params={}
+2026-10-27 15:03:28,577 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [list_devices]: [{"name":"R1","model":"2911","type":0,"x":327,"y":105,"power":true},{"name":"Power Distribution Device0","model":"Power Distribution Device","type":45,"x":3899,"y":3900,"power":true},{"name":"SW1","model":"2960-24TT","type":1,"x":319,"y":248,"power":true},{"name":"PC1","model":"PC-PT","type":8,"x":177,"y":382,"power":true},{"name":"PC2","model":"PC-PT","type":8,"x":477,"y":382,"power":true}]
+2026-10-27 15:03:28,578 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'list_devices' (id=f3885631-ed83-4c06-9f48-a1f162cd07c0): success=True
+2026-10-27 15:03:48,029 [PID:37421] - INFO - [PROXY -> HUB] Enviando 'get_device_ports' (id=368835bd-6143-4844-874b-9c26daf60304) vía ws://127.0.0.1:8765
+2026-10-27 15:03:48,043 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 53810)
+2026-10-27 15:03:48,044 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'get_device_ports' (id=2891eadf-5702-441b-ae42-d42f246b468d) params={'device': 'R1'}
+2026-10-27 15:03:48,045 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: get_device_ports (id=2891eadf-5702-441b-ae42-d42f246b468d) params={"device":"R1"}
+2026-10-27 15:03:48,052 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [get_device_ports]: [{"name":"Vlan1","ip":"0.0.0.0","mask":"0.0.0.0","up":false},{"name":"GigabitEthernet0/0","ip":"0.0.0.0","mask":"0.0.0.0","up":false},{"name":"GigabitEthernet0/1","ip":"0.0.0.0","mask":"0.0.0.0","up":false},{"name":"GigabitEthernet0/2","ip":"0.0.0.0","mask":"0.0.0.0","up":false}]
+2026-10-27 15:03:48,052 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'get_device_ports' (id=2891eadf-5702-441b-ae42-d42f246b468d): success=True
+2026-10-27 15:03:48,053 [PID:37421] - INFO - [PROXY -> HUB] Enviando 'get_device_ports' (id=87be9b5c-7c81-4df3-8539-1c7b0bc55d7a) vía ws://127.0.0.1:8765
+2026-10-27 15:03:48,055 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 53818)
+2026-10-27 15:03:48,056 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'get_device_ports' (id=a2ca4013-dff5-43cf-8b55-1c1ed864bac4) params={'device': 'PC1'}
+2026-10-27 15:03:48,057 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: get_device_ports (id=a2ca4013-dff5-43cf-8b55-1c1ed864bac4) params={"device":"PC1"}
+2026-10-27 15:03:48,060 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [get_device_ports]: [{"name":"FastEthernet0","ip":"192.168.10.10","mask":"255.255.255.0","up":true},{"name":"Bluetooth","ip":"0.0.0.0","mask":"0.0.0.0","up":false}]
+2026-10-27 15:03:48,061 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'get_device_ports' (id=a2ca4013-dff5-43cf-8b55-1c1ed864bac4): success=True
+2026-10-27 15:03:48,062 [PID:37421] - INFO - [PROXY -> HUB] Enviando 'get_device_ports' (id=aaaf31d3-2a75-48cd-a3b1-b7b40d4c1edd) vía ws://127.0.0.1:8765
+2026-10-27 15:03:48,063 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 53820)
+2026-10-27 15:03:48,064 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'get_device_ports' (id=54e33208-fb4e-4ace-b78a-fa3b8e3747ea) params={'device': 'PC2'}
+2026-10-27 15:03:48,065 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: get_device_ports (id=54e33208-fb4e-4ace-b78a-fa3b8e3747ea) params={"device":"PC2"}
+2026-10-27 15:03:48,068 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [get_device_ports]: [{"name":"FastEthernet0","ip":"192.168.10.20","mask":"255.255.255.0","up":true},{"name":"Bluetooth","ip":"0.0.0.0","mask":"0.0.0.0","up":false}]
+2026-10-27 15:03:48,068 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'get_device_ports' (id=54e33208-fb4e-4ace-b78a-fa3b8e3747ea): success=True
+2026-10-27 15:04:12,204 [PID:37469] - INFO - [PROXY -> HUB] Enviando 'configure_ios' (id=a938466a-8730-45ed-9247-4686ad2ee40a) vía ws://127.0.0.1:8765
+2026-10-27 15:04:12,227 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 59984)
+2026-10-27 15:04:12,228 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'configure_ios' (id=cb2238e5-a279-4f89-b90b-f4431faafd01) params={'device': 'R1', 'commands': ['enable', 'configure terminal', 'hostname R1', 'interface GigabitEthernet0/0', 'description LAN_PRINCIPAL', 'ip address 192.168.10.1 255.255.255.0', 'no shutdown', 'end', 'write memory']}
+2026-10-27 15:04:12,230 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: configure_ios (id=cb2238e5-a279-4f89-b90b-f4431faafd01) params={"device":"R1","commands":["enable","configure terminal","hostname R1","interface GigabitEthernet0/0","description LAN_PRINCIPAL","ip address 192.168.10.1 255.255.255.0","no shutdown","end","write memory"]}
+2026-10-27 15:04:12,260 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [configure_ios]: {"device":"R1","executed":9,"prompt":"R1#"}
+2026-10-27 15:04:12,260 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'configure_ios' (id=cb2238e5-a279-4f89-b90b-f4431faafd01): success=True
+2026-10-27 15:04:12,262 [PID:37469] - INFO - [PROXY -> HUB] Enviando 'configure_ios' (id=95067f4c-d881-45ee-8920-b08dbd1bf708) vía ws://127.0.0.1:8765
+2026-10-27 15:04:12,268 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 59988)
+2026-10-27 15:04:12,269 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'configure_ios' (id=2209e76c-19f6-450b-9b0e-cc42a74dbb93) params={'device': 'SW1', 'commands': ['enable', 'configure terminal', 'hostname SW1', 'end', 'write memory']}
+2026-10-27 15:04:12,272 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: configure_ios (id=2209e76c-19f6-450b-9b0e-cc42a74dbb93) params={"device":"SW1","commands":["enable","configure terminal","hostname SW1","end","write memory"]}
+2026-10-27 15:04:12,285 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [configure_ios]: {"device":"SW1","executed":5,"prompt":"SW1#"}
+2026-10-27 15:04:12,286 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'configure_ios' (id=2209e76c-19f6-450b-9b0e-cc42a74dbb93): success=True
+2026-10-27 15:04:12,287 [PID:37469] - INFO - [PROXY -> HUB] Enviando 'get_device_ports' (id=2d995045-16aa-4708-b014-d70afe9a752d) vía ws://127.0.0.1:8765
+2026-10-27 15:04:12,290 [PID:36360] - INFO - [HUB] Nueva conexión WebSocket entrante desde ('127.0.0.1', 60004)
+2026-10-27 15:04:12,291 [PID:36360] - INFO - [HUB -> PT] Enviando acción 'get_device_ports' (id=09d3fc92-e7fa-4e5a-9321-b571e90fe50e) params={'device': 'R1'}
+2026-10-27 15:04:12,293 [PID:36360] - INFO - [PT-BRIDGE-LOG] [INFO] >> Petición MCP recibida: get_device_ports (id=09d3fc92-e7fa-4e5a-9321-b571e90fe50e) params={"device":"R1"}
+2026-10-27 15:04:12,299 [PID:36360] - INFO - [PT-BRIDGE-LOG] [SUCCESS] << OK [get_device_ports]: [{"name":"Vlan1","ip":"0.0.0.0","mask":"0.0.0.0","up":false},{"name":"GigabitEthernet0/0","ip":"192.168.10.1","mask":"255.255.255.0","up":true},{"name":"GigabitEthernet0/1","ip":"0.0.0.0","mask":"0.0.0.0","up":false},{"name":"GigabitEthernet0/2","ip":"0.0.0.0","mask":"0.0.0.0","up":false}]
+2026-10-27 15:04:12,300 [PID:36360] - INFO - [PT -> HUB] Respuesta recibida para 'get_device_ports' (id=09d3fc92-e7fa-4e5a-9321-b571e90fe50e): success=True

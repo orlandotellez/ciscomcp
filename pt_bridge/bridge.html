@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Bridge - Packet Tracer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Consolas', 'Courier New', monospace;
+            padding: 10px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #2d2d30;
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            border: 1px solid #3e3e42;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .status-left {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #f48771;
+        }
+
+        .status-indicator.connected {
+            background-color: #89d185;
+            box-shadow: 0 0 6px #89d185;
+        }
+
+        .status-text {
+            font-weight: bold;
+            color: #f48771;
+        }
+
+        .info {
+            color: #9cdcfe;
+            font-size: 11px;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 6px;
+        }
+
+        button {
+            background-color: #0e639c;
+            color: #ffffff;
+            border: 1px solid #1177bb;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1177bb;
+        }
+
+        button.secondary {
+            background-color: #3a3d41;
+            border-color: #45494e;
+        }
+
+        button.secondary:hover {
+            background-color: #45494e;
+        }
+
+        .console {
+            background-color: #0c0c0c;
+            border: 1px solid #3e3e42;
+            border-radius: 4px;
+            flex: 1;
+            min-height: 240px;
+            overflow-y: auto;
+            padding: 8px;
+            font-size: 11px;
+        }
+
+        .log-entry {
+            margin: 3px 0;
+            word-break: break-word;
+            line-height: 1.35;
+        }
+
+        .log-time {
+            color: #608b4e;
+        }
+
+        .log-info {
+            color: #4fc1ff;
+        }
+
+        .log-success {
+            color: #89d185;
+        }
+
+        .log-error {
+            color: #f48771;
+        }
+
+        .log-warn {
+            color: #dcdcaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="status-left">
+            <div class="status">
+                <div class="status-indicator" id="statusIndicator"></div>
+                <span class="status-text" id="statusText">Desconectado</span>
+            </div>
+            <div class="info">ws://127.0.0.1:8765 | Logs en: Ventana + PT Debug + mcp_server.log</div>
+        </div>
+        <div class="toolbar">
+            <button onclick="testIpcNow()">Probar IPC</button>
+            <button class="secondary" onclick="manualReconnect()">Reconectar</button>
+            <button class="secondary" onclick="clearConsole()">Limpiar</button>
+        </div>
+    </div>
+
+    <div class="console" id="console"></div>
+
+    <script>
+        let ws = null;
+        let reconnectInterval = null;
+        const WS_URL = 'ws://127.0.0.1:8765';
+        const RECONNECT_DELAY = 3000;
+
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        const consoleDiv = document.getElementById('console');
+
+        function log(message, type = 'info') {
+            const time = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="log-time">[${time}]</span> <span class="log-${type}">${escapeHtml(String(message))}</span>`;
+            consoleDiv.appendChild(entry);
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+
+            // 1) Enviar también al diálogo Debug de Packet Tracer si dprint está disponible
+            try {
+                if (typeof dprint === 'function') {
+                    dprint(`[${time}] [MCP-WV] [${type.toUpperCase()}] ${message}`);
+                }
+            } catch (e) {}
+
+            // 2) Enviar al servidor MCP por WebSocket para que quede registrado en mcp_server.log
+            try {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.send(JSON.stringify({
+                        type: 'bridge_log',
+                        level: type,
+                        time: time,
+                        message: String(message)
+                    }));
+                }
+            } catch (e) {}
+        }
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function clearConsole() {
+            consoleDiv.innerHTML = '';
+            log('Consola limpiada.', 'info');
+        }
+
+        function updateStatus(connected) {
+            if (connected) {
+                statusIndicator.classList.add('connected');
+                statusText.textContent = 'Conectado a MCP Server';
+                statusText.style.color = '#89d185';
+            } else {
+                statusIndicator.classList.remove('connected');
+                statusText.textContent = 'Desconectado';
+                statusText.style.color = '#f48771';
+            }
+        }
+
+        function manualReconnect() {
+            if (reconnectInterval) {
+                clearInterval(reconnectInterval);
+                reconnectInterval = null;
+            }
+            if (ws) {
+                try { ws.close(); } catch (e) {}
+                ws = null;
+            }
+            connect();
+        }
+
+        function connect() {
+            if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) {
+                return;
+            }
+            try {
+                log(`Conectando a ${WS_URL}...`, 'info');
+                ws = new WebSocket(WS_URL);
+
+                ws.onopen = function() {
+                    updateStatus(true);
+                    if (reconnectInterval) {
+                        clearInterval(reconnectInterval);
+                        reconnectInterval = null;
+                    }
+                    // Identificarse ante el Hub WebSocket de server.py como el Bridge de Packet Tracer
+                    ws.send(JSON.stringify({
+                        type: 'register_bridge',
+                        client: 'packettracer_webview'
+                    }));
+                    log('Conexión establecida con servidor MCP (ws://127.0.0.1:8765)', 'success');
+                };
+
+                ws.onmessage = async function(event) {
+                    try {
+                        const data = JSON.parse(event.data);
+                        if (data.type === 'welcome' || data.type === 'ack') {
+                            return;
+                        }
+                        log(`>> Petición MCP recibida: ${data.action} (id=${data.id}) params=${JSON.stringify(data.params || {})}`, 'info');
+                        await handleRequest(data);
+                    } catch (e) {
+                        log(`Error procesando mensaje WS: ${e.message}`, 'error');
+                    }
+                };
+
+                ws.onclose = function(evt) {
+                    updateStatus(false);
+                    ws = null;
+                    log(`Conexión WebSocket cerrada (code=${evt.code}). Reintentando cada ${RECONNECT_DELAY/1000}s...`, 'warn');
+                    if (!reconnectInterval) {
+                        reconnectInterval = setInterval(connect, RECONNECT_DELAY);
+                    }
+                };
+
+                ws.onerror = function() {
+                    log('Error de conexión con ws://127.0.0.1:8765 (¿está corriendo server.py?)', 'error');
+                    updateStatus(false);
+                };
+            } catch (e) {
+                log(`Excepción creando WebSocket: ${e.message}`, 'error');
+                updateStatus(false);
+                if (!reconnectInterval) {
+                    reconnectInterval = setInterval(connect, RECONNECT_DELAY);
+                }
+            }
+        }
+
+        async function executeInScriptEngineOrFallback(requestObj) {
+            // Vía principal recomendada por la documentación oficial de Packet Tracer:
+            // delegar mediante $seev() a executeMcpCommand() en main.js (Script Engine)
+            if (typeof window.$seev === 'function') {
+                const payloadLiteral = JSON.stringify(JSON.stringify(requestObj));
+                const rawResp = await window.$seev(`executeMcpCommand(${payloadLiteral})`);
+                if (rawResp) {
+                    return (typeof rawResp === 'string') ? JSON.parse(rawResp) : rawResp;
+                }
+            }
+            // Fallback directo usando IPC asíncrono de WebView (Promise API de PT 8.x)
+            return await executeFallbackWebViewIpc(requestObj);
+        }
+
+        async function executeFallbackWebViewIpc(requestObj) {
+            const { id, action, params } = requestObj;
+            const p = params || {};
+            if (typeof ipc === 'undefined') {
+                throw new Error('Ni $seev ni ipc están disponibles en esta ventana.');
+            }
+            if (action === 'ping') {
+                const count = await ipc.network().getDeviceCount();
+                return { id, success: true, data: { status: 'ok', device_count: count }, error: null };
+            }
+            if (action === 'list_devices') {
+                const count = await ipc.network().getDeviceCount();
+                const devices = [];
+                for (let i = 0; i < count; i++) {
+                    const dev = await ipc.network().getDeviceAt(i);
+                    devices.push({
+                        name: await dev.getName(),
+                        model: await dev.getModel(),
+                        type: await dev.getType(),
+                        x: await dev.getXCoordinate(),
+                        y: await dev.getYCoordinate()
+                    });
+                }
+                return { id, success: true, data: devices, error: null };
+            }
+            throw new Error(`$seev no disponible para ejecutar ${action} en el Script Engine.`);
+        }
+
+        async function handleRequest(request) {
+            const { id, action } = request;
+            let result = { id: id, success: false, data: null, error: null };
+
+            try {
+                result = await executeInScriptEngineOrFallback(request);
+                if (result.success) {
+                    log(`<< OK [${action}]: ${JSON.stringify(result.data)}`, 'success');
+                } else {
+                    log(`<< ERROR [${action}]: ${result.error}`, 'error');
+                }
+            } catch (e) {
+                result.error = e.message || String(e);
+                log(`<< EXCEPCIÓN [${action}]: ${result.error}`, 'error');
+            }
+
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify(result));
+            }
+        }
+
+        async function testIpcNow() {
+            log('Probando comunicación IPC con Packet Tracer (list_devices)...', 'info');
+            try {
+                const res = await executeInScriptEngineOrFallback({
+                    id: 'manual-test',
+                    action: 'list_devices',
+                    params: {}
+                });
+                if (res && res.success) {
+                    log(`Prueba IPC EXITOSA: ${res.data.length} dispositivos encontrados -> ${JSON.stringify(res.data)}`, 'success');
+                } else {
+                    log(`Prueba IPC devolvió error: ${res ? res.error : 'sin respuesta'}`, 'error');
+                }
+            } catch (e) {
+                log(`Error en prueba IPC: ${e.message || e}`, 'error');
+            }
+        }
+
+        // Esperar a que la API del WebView ($seev / dprint) de Packet Tracer esté lista
+        window.addEventListener('load', function() {
+            log('Ventana MCP Bridge cargada.', 'success');
+            let attempts = 0;
+            const waitTimer = setInterval(function() {
+                attempts++;
+                if (typeof window.$seev === 'function' || attempts >= 15) {
+                    clearInterval(waitTimer);
+                    if (typeof window.$seev === 'function') {
+                        log('API de Packet Tracer ($seev / dprint) detectada y activa.', 'success');
+                    } else {
+                        log('Aviso: $seev aún no detectado; se usará IPC directo si está disponible.', 'warn');
+                    }
+                    connect();
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

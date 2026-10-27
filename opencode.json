@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "packettracer": {
+      "type": "local",
+      "command": ["/home/kenerth/IA redes/run_mcp_packettracer.sh"],
+      "enabled": true
+    }
+  }
+}
