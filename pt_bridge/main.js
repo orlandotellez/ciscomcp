@@ -173,9 +173,14 @@ function executeMcpCommand(rawJson) {
                 throw new Error("LogicalWorkspace.addDevice falló para type=" + typeId + ", model=" + model);
             }
             var finalName = createdName;
-            if (desiredName && desiredName !== createdName) {
-                var addedDev = net.getDevice(createdName);
-                if (addedDev) {
+            var addedDev = net.getDevice(createdName);
+            if (addedDev) {
+                try {
+                    if (typeof addedDev.skipBoot === "function") {
+                        addedDev.skipBoot();
+                    }
+                } catch (eBoot) {}
+                if (desiredName && desiredName !== createdName) {
                     addedDev.setName(desiredName);
                     finalName = addedDev.getName();
                 }
@@ -247,6 +252,14 @@ function executeMcpCommand(rawJson) {
             if (!iosDev) {
                 throw new Error("Dispositivo no encontrado: " + iosDevName);
             }
+            try {
+                if (typeof iosDev.isBooting === "function" && iosDev.isBooting()) {
+                    logDebug("Dispositivo " + iosDevName + " aún arrancando; ejecutando skipBoot()...");
+                    iosDev.skipBoot();
+                } else if (typeof iosDev.skipBoot === "function") {
+                    iosDev.skipBoot();
+                }
+            } catch (eBoot) {}
             var cli = iosDev.getCommandLine();
             if (!cli) {
                 throw new Error("El dispositivo '" + iosDevName + "' no tiene CLI IOS disponible (getCommandLine() == null).");
